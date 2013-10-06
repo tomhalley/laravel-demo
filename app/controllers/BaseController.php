@@ -1,7 +1,7 @@
 <?php
 
-class BaseController extends Controller {
-
+class BaseController extends Controller
+{
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -15,4 +15,10 @@ class BaseController extends Controller {
 		}
 	}
 
+    protected function makeView($class, $method, $data = null)
+    {
+        $classViewPath = strtolower(str_replace("Controller", "", $class));
+        $actionViewPath = strtolower(str_replace("Action", "", $method));
+        return View::make($classViewPath . "/" . $actionViewPath, $data);
+    }
 }
