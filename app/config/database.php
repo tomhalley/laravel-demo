@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'dev',
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return array(
 	*/
 
 	'connections' => array(
-		'dev' => array(
+		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'fototop_dev',
@@ -54,17 +54,7 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
-        'test' => array(
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'fototop_test',
-            'username'  => 'root',
-            'password'  => 'password',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        )
+		)
 	),
 
 	/*
