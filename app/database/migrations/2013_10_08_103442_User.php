@@ -18,7 +18,9 @@ class User extends Migration
                 $table->string("Username", 64);
                 $table->string("Email", 128);
                 $table->string("Password", 128);
-                $table->string("FacebookID", 128)->nullable();
+                $table->string("FacebookID", 128)->unique();
+                $table->dateTime("UpdatedAt");
+                $table->dateTime("CreatedAt");
             });
     }
 

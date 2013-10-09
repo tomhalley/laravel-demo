@@ -40,11 +40,21 @@ class User extends BaseEntity
     protected $FacebookID;
 
     /**
+     * @var
+     */
+    protected $CreatedAt;
+
+    /**
+     * @var
+     */
+    protected $UpdatedAt;
+
+    /**
      * @param Eloquent\User $user
      */
     public function __construct(Eloquent\User $user = null)
     {
-        if ($user != null) {
+        if ($user !== null) {
             $this->id = $user->id;
             $this->Username = $user->Username;
             $this->Email = $user->Email;
@@ -131,5 +141,21 @@ class User extends BaseEntity
     {
         $this->FacebookID = $facebookId;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->CreatedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->UpdatedAt;
     }
 }

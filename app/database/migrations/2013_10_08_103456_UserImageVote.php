@@ -13,15 +13,15 @@ class UserImageVote extends Migration
     public function up()
     {
         Schema::create("UserImageVote", function(Blueprint $table)
-            {
-                $table->increments("id");
-                $table->unsignedInteger("UserID");
-                $table->unsignedInteger("ImageID");
-                $table->tinyInteger("Vote");
+        {
+            $table->increments("id");
+            $table->unsignedInteger("UserID");
+            $table->unsignedInteger("ImageID");
+            $table->tinyInteger("Vote");
 
-                $table->foreign("UserID")->references("id")->on("User");
-                $table->foreign("ImageID")->references("id")->on("Image");
-            });
+            $table->foreign("UserID")->references("id")->on("User");
+            $table->foreign("ImageID")->references("id")->on("Image");
+        });
     }
 
     /**

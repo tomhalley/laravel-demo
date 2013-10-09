@@ -11,17 +11,30 @@
 * @copyright  Copyright (c) 2013 NCCGroup Ltd.
 */
 
+use \Fototop\Model\Entity\Eloquent\User;
+
 class UserTableSeeder extends Seeder
 {
     public function run()
     {
         DB::table("User")->delete();
 
-        \Fototop\Model\Entity\Eloquent\User::create(array(
+        User::create(array(
             "Email" => "tomhalley89@gmail.com",
             "Username" => "tomhalley89",
             "Password" => "password",
-            "FacebookID" => "489fo4fhofahwf98aej4rf9"
+            "FacebookID" => "489fo4fhofahwf98aej4rf9",
+            "UpdatedAt" => date("Y-m-d h:i:s"),
+            "CreatedAt" => date("Y-m-d h:i:s")
+        ));
+
+        User::create(array(
+            "Email" => "planetaliens98@hotmail.com",
+            "Username" => "tom",
+            "Password" => "password",
+            "FacebookID" => "489fo4fhahwf98aej4rf9",
+            "UpdatedAt" => date("Y-m-d h:i:s"),
+            "CreatedAt" => date("Y-m-d h:i:s")
         ));
     }
 }

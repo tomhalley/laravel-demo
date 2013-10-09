@@ -18,14 +18,17 @@ class UserImageVote extends BaseEntity
      * @var
      */
     protected $id;
+
     /**
      * @var
      */
     protected $UserID;
+
     /**
      * @var
      */
     protected $ImageID;
+
     /**
      * @var
      */
@@ -53,11 +56,13 @@ class UserImageVote extends BaseEntity
     }
 
     /**
-     * @param mixed $id
+     * @param $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -69,11 +74,13 @@ class UserImageVote extends BaseEntity
     }
 
     /**
-     * @param mixed $UserID
+     * @param $UserID
+     * @return $this
      */
     public function setUserID($UserID)
     {
         $this->UserID = $UserID;
+        return $this;
     }
 
     /**
@@ -85,11 +92,13 @@ class UserImageVote extends BaseEntity
     }
 
     /**
-     * @param mixed $ImageID
+     * @param $ImageID
+     * @return $this
      */
     public function setImageID($ImageID)
     {
         $this->ImageID = $ImageID;
+        return $this;
     }
 
     /**
@@ -101,10 +110,12 @@ class UserImageVote extends BaseEntity
     }
 
     /**
-     * @param mixed $Vote
+     * @param $Vote
+     * @return $this
      */
     public function setVote($Vote)
     {
         $this->Vote = $Vote;
+        return $this;
     }
 }

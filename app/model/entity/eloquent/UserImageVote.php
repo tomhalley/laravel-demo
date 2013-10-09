@@ -13,5 +13,7 @@ namespace Fototop\Model\Entity\Eloquent;
  */
 class UserImageVote extends \Eloquent
 {
+    public $timestamps = false;
+    protected $guarded = array('id');
     protected $table = "UserImageVote";
 }

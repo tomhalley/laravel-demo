@@ -11,8 +11,13 @@ namespace Fototop\Model\Entity\Eloquent;
  * @property string $Email
  * @property string $Password
  * @property string $FacebookID
+ * @property \DateTime $CreatedAt
+ * @property \DateTime $UpdatedAt
  */
 class User extends \Eloquent
 {
+    public $timestamps = false;
+    protected $hidden = array('Password');
+    protected $guarded = array('id', 'Password');
     protected $table = "User";
 }

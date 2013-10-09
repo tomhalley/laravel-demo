@@ -1,28 +1,36 @@
 <?php
 namespace Fototop\Model\Entity\Repository;
 
-use Fototop\Model\Entity\BaseEntity;
+use Fototop\Model\Entity\Eloquent\User as OrmUser;
+use Fototop\Model\Entity\User as User;
 
 /**
-* UserRepository.php
-*
-* @author     Tom Halley <tom.halley@nccgroup.com>
-* @package    Fototop
-* @category   [SUBSYSTEM NAME]
-* @since      08/10/13  14:41
-*
-* @copyright  Copyright (c) 2013 NCCGroup Ltd.
-*/
+ * UserRepository.php
+ *
+ * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @package    Fototop
+ * @category   Repository
+ * @since      08/10/13  14:41
+ *
+ * @copyright  Copyright (c) 2013 NCCGroup Ltd.
+ */
 
-class UserRepository implements iRepository
+class UserRepository
 {
     /**
      * @param $id
-     * @return mixed
+     * @return bool|\Fototop\Model\Entity\User
      */
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        /** @var $user OrmUser */
+        $user = OrmUser::find($id);
+
+        if ($user == false) {
+            return false;
+        }
+
+        return new User($user);
     }
 
     /**
@@ -30,24 +38,46 @@ class UserRepository implements iRepository
      */
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $users = OrmUser::all();
+
+        $userModels = array();
+        foreach ($users as $user) {
+            $userModels[] = new User($user);
+        }
+        return $userModels;
     }
 
     /**
-     * @param BaseEntity $entity
-     * @return mixed
+     * @param \Fototop\Model\Entity\User $entity
+     * @return mixed|void
      */
-    public function save(BaseEntity $entity)
+    public function save(User $entity)
     {
-        // TODO: Implement save() method.
+        $user = new OrmUser();
+
+        if ($entity->getId() != null) {
+            $user = OrmUser::find($entity->getId());
+
+            if ($user === null) {
+                return false;
+            }
+        }
+
+        $user->Username = $entity->getUsername();
+        $user->Email = $entity->getEmail();
+        $user->Password = $entity->getPassword();
+        $user->FacebookID = $entity->getFacebookID();
+        $user->UpdatedAt = date("Y-m-d h:i:s");
+        $user->CreatedAt = date("Y-m-d h:i:s");
+
+        return $user->save();
     }
 
     /**
-     * @param BaseEntity $entity
-     * @return mixed
+     * @param User $entity
      */
-    public function delete(BaseEntity $entity)
+    public function delete(User $entity)
     {
-        // TODO: Implement delete() method.
+        OrmUser::destroy($entity->getId());
     }
 }

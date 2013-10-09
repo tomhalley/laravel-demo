@@ -21,7 +21,6 @@ class Image extends Migration
                 $table->unsignedInteger("UserID");
                 $table->dateTime("CreatedAt");
                 $table->dateTime("UpdatedAt");
-                $table->dateTime("DeletedAt");
 
                 $table->foreign("UserID")->references("id")->on("User");
             });

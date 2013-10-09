@@ -2,12 +2,12 @@
 namespace Fototop\Model\Entity;
 
 /**
- * Image.php
+ * Image Class
  *
  * @author     Tom Halley <tom.halley@nccgroup.com>
- * @package    Fototop
- * @category   Entity
- * @since      08/10/13  16:48
+ * @package    Fototop\Model\Entity
+ * @category
+ * @since
  *
  * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
@@ -58,7 +58,7 @@ class Image extends BaseEntity
      */
     public function __construct(Eloquent\Image $image = null)
     {
-        if ($image != null) {
+        if ($image !== null) {
             $this->id = $image->id;
             $this->Title = $image->Title;
             $this->Path = $image->Path;
@@ -95,11 +95,13 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $Title
+     * @param $Title
+     * @return $this
      */
     public function setTitle($Title)
     {
         $this->Title = $Title;
+        return $this;
     }
 
     /**
@@ -111,11 +113,13 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $Path
+     * @param $Path
+     * @return $this
      */
     public function setPath($Path)
     {
         $this->Path = $Path;
+        return $this;
     }
 
     /**
@@ -127,11 +131,13 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $Caption
+     * @param $Caption
+     * @return $this
      */
     public function setCaption($Caption)
     {
         $this->Caption = $Caption;
+        return $this;
     }
 
     /**
@@ -143,7 +149,7 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $UserID
+     * @param $UserID
      */
     public function setUserID($UserID)
     {
@@ -151,19 +157,11 @@ class Image extends BaseEntity
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
         return $this->CreatedAt;
-    }
-
-    /**
-     * @param mixed $CreatedAt
-     */
-    public function setCreatedAt($CreatedAt)
-    {
-        $this->CreatedAt = $CreatedAt;
     }
 
     /**
@@ -175,26 +173,10 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $UpdatedAt
-     */
-    public function setUpdatedAt($UpdatedAt)
-    {
-        $this->UpdatedAt = $UpdatedAt;
-    }
-
-    /**
      * @return mixed
      */
     public function getDeletedAt()
     {
         return $this->DeletedAt;
-    }
-
-    /**
-     * @param mixed $DeletedAt
-     */
-    public function setDeletedAt($DeletedAt)
-    {
-        $this->DeletedAt = $DeletedAt;
     }
 }
