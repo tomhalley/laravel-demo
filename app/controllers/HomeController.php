@@ -13,9 +13,15 @@ class HomeController extends BaseController
      */
     private $userRepo;
 
+    /**
+     * @var \Fototop\Model\Entity\Repository\ImageRepository imageRepo
+     */
+    private $imageRepo;
+
     public function __construct()
     {
         $this->userRepo = new \Fototop\Model\Entity\Repository\UserRepository();
+        $this->imageRepo = new \Fototop\Model\Entity\Repository\ImageRepository();
     }
 
     /**
@@ -23,20 +29,8 @@ class HomeController extends BaseController
      */
     public function indexAction()
     {
-        $user = $this->userRepo->findById(1);
+        $images = $this->imageRepo->paginate(15);
 
-        if($user !== false) {
-            return $this->makeView(__CLASS__, __FUNCTION__, array("name" => $user->getUsername()));
-        }
-        return $this->makeView(__CLASS__, __FUNCTION__);
-    }
-
-    /**
-     * @param $name
-     * @return \Illuminate\View\View
-     */
-    public function helloAction($name)
-    {
-        return View::make("home/index", array("name" => $name));
+        return View::make("home/index", array("images" => $images));
     }
 }

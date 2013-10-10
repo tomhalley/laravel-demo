@@ -11,7 +11,7 @@ namespace Fototop\Model\Entity\Eloquent;
  * @property int $ImageID
  * @property bool $Vote
  */
-class UserImageVote extends \Eloquent
+class BaseUserImageVote extends \Eloquent
 {
     public $timestamps = false;
     protected $guarded = array('id');

@@ -13,17 +13,17 @@ class Image extends Migration
     public function up()
     {
         Schema::create("Image", function(Blueprint $table)
-            {
-                $table->increments("id");
-                $table->string("Title", 512);
-                $table->string("Path", 512);
-                $table->string("Caption", 1024)->nullable();
-                $table->unsignedInteger("UserID");
-                $table->dateTime("CreatedAt");
-                $table->dateTime("UpdatedAt");
+        {
+            $table->increments("id");
+            $table->string("Checksum")->unique();
+            $table->string("Title", 512);
+            $table->string("Caption", 1024)->nullable();
+            $table->unsignedInteger("UserID");
+            $table->dateTime("CreatedAt");
+            $table->dateTime("UpdatedAt");
 
-                $table->foreign("UserID")->references("id")->on("User");
-            });
+            $table->foreign("UserID")->references("id")->on("User");
+        });
     }
 
     /**

@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-use \Fototop\Model\Entity\Eloquent\User as OrmUser;
+use \Fototop\Model\Entity\Eloquent\BaseUser as OrmUser;
 use \Fototop\Model\Entity\User as UserModel;
 
 class UserRepositoryTest extends TestCase

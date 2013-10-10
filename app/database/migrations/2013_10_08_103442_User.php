@@ -13,15 +13,15 @@ class User extends Migration
     public function up()
     {
         Schema::create('User', function(Blueprint $table)
-            {
-                $table->increments("id");
-                $table->string("Username", 64);
-                $table->string("Email", 128);
-                $table->string("Password", 128);
-                $table->string("FacebookID", 128)->unique();
-                $table->dateTime("UpdatedAt");
-                $table->dateTime("CreatedAt");
-            });
+        {
+            $table->increments("id");
+            $table->string("Username", 64);
+            $table->string("Email", 128);
+            $table->string("Password", 128);
+            $table->string("FacebookID", 128)->unique();
+            $table->dateTime("UpdatedAt");
+            $table->dateTime("CreatedAt");
+        });
     }
 
     /**

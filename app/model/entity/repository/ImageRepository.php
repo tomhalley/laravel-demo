@@ -1,8 +1,9 @@
 <?php
 namespace Fototop\Model\Entity\Repository;
 
-use Fototop\Model\Entity\BaseEntity;
-use Fototop\Model\Entity\Eloquent\Image;
+use DB;
+use Fototop\Model\Entity\Eloquent\BaseImage;
+use Fototop\Model\Entity\Image;
 
 /**
 * ImageRepository.php
@@ -14,7 +15,7 @@ use Fototop\Model\Entity\Eloquent\Image;
 *
 * @copyright  Copyright (c) 2013 NCCGroup Ltd.
 */
-class ImageRepository implements iRepository
+class ImageRepository
 {
     /**
      * @param $id
@@ -30,24 +31,59 @@ class ImageRepository implements iRepository
      */
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $images = BaseImage::all();
+
+        $imageModels = array();
+        foreach ($images as $image) {
+            $imageModels[] = new Image($image);
+        }
+        return $imageModels;
+    }
+
+    /**
+     * @param \Fototop\Model\Entity\Image $image
+     * @return mixed
+     */
+    public function save($image)
+    {
+        $persistentImage = new BaseImage();
+
+        if ($image->getId() != null) {
+            $persistentImage = BaseImage::find($image->getId());
+
+            if ($persistentImage === null) {
+                return false;
+            }
+        }
+
+        $persistentImage->Title = $image->getTitle();
+        $persistentImage->Path = $image->getPath();
+        $persistentImage->Caption = $image->getCaption();
+        $persistentImage->UserID = $image->getUserID();
+        $persistentImage->CreatedAt =
+        $persistentImage->UpdatedAt = date("Y-m-d h:i:s");
+        $persistentImage->CreatedAt = date("Y-m-d h:i:s");
+
+        return $persistentImage->save();
     }
 
     /**
      * @param BaseEntity $entity
      * @return mixed
      */
-    public function save(BaseEntity $entity)
+    public function delete($entity)
     {
-        // TODO: Implement save() method.
+        BaseImage::destroy($entity->getId());
     }
 
     /**
-     * @param BaseEntity $entity
-     * @return mixed
+     * @param int $count
+     * @return \Illuminate\Pagination\Paginator
      */
-    public function delete(BaseEntity $entity)
+    public function paginate($count = 15)
     {
-        Image::destroy($entity->getId());
+        $images = DB::table("Image")->paginate($count);
+
+        return $images;
     }
 }

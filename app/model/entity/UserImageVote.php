@@ -12,7 +12,7 @@ namespace Fototop\Model\Entity;
  * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 
-class UserImageVote extends BaseEntity
+class UserImageVote
 {
     /**
      * @var
@@ -35,9 +35,9 @@ class UserImageVote extends BaseEntity
     protected $Vote;
 
     /**
-     * @param Eloquent\UserImageVote $userImageVote
+     * @param Eloquent\BaseUserImageVote $userImageVote
      */
-    public function __construct(Eloquent\UserImageVote $userImageVote = null)
+    public function __construct(Eloquent\BaseUserImageVote $userImageVote = null)
     {
         if ($userImageVote !== null) {
             $this->id = $userImageVote->id;

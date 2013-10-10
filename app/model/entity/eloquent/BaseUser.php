@@ -14,7 +14,7 @@ namespace Fototop\Model\Entity\Eloquent;
  * @property \DateTime $CreatedAt
  * @property \DateTime $UpdatedAt
  */
-class User extends \Eloquent
+class BaseUser extends \Eloquent
 {
     public $timestamps = false;
     protected $hidden = array('Password');

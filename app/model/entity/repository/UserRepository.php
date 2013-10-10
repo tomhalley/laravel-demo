@@ -1,8 +1,8 @@
 <?php
 namespace Fototop\Model\Entity\Repository;
 
-use Fototop\Model\Entity\Eloquent\User as OrmUser;
-use Fototop\Model\Entity\User as User;
+use Fototop\Model\Entity\Eloquent\BaseUser;
+use Fototop\Model\Entity\User;
 
 /**
  * UserRepository.php
@@ -23,8 +23,8 @@ class UserRepository
      */
     public function findById($id)
     {
-        /** @var $user OrmUser */
-        $user = OrmUser::find($id);
+        /** @var $user BaseUser */
+        $user = BaseUser::find($id);
 
         if ($user == false) {
             return false;
@@ -38,7 +38,7 @@ class UserRepository
      */
     public function findAll()
     {
-        $users = OrmUser::all();
+        $users = BaseUser::all();
 
         $userModels = array();
         foreach ($users as $user) {
@@ -48,36 +48,36 @@ class UserRepository
     }
 
     /**
-     * @param \Fototop\Model\Entity\User $entity
-     * @return mixed|void
+     * @param User $user
+     * @return bool
      */
-    public function save(User $entity)
+    public function save(User $user)
     {
-        $user = new OrmUser();
+        $persistentUser = new BaseUser();
 
-        if ($entity->getId() != null) {
-            $user = OrmUser::find($entity->getId());
+        if ($user->getId() != null) {
+            $persistentUser = BaseUser::find($user->getId());
 
-            if ($user === null) {
+            if ($persistentUser === null) {
                 return false;
             }
         }
 
-        $user->Username = $entity->getUsername();
-        $user->Email = $entity->getEmail();
-        $user->Password = $entity->getPassword();
-        $user->FacebookID = $entity->getFacebookID();
-        $user->UpdatedAt = date("Y-m-d h:i:s");
-        $user->CreatedAt = date("Y-m-d h:i:s");
+        $persistentUser->Username = $user->getUsername();
+        $persistentUser->Email = $user->getEmail();
+        $persistentUser->Password = $user->getPassword();
+        $persistentUser->FacebookID = $user->getFacebookID();
+        $persistentUser->UpdatedAt = date("Y-m-d h:i:s");
+        $persistentUser->CreatedAt = date("Y-m-d h:i:s");
 
-        return $user->save();
+        return $persistentUser->save();
     }
 
     /**
-     * @param User $entity
+     * @param User $user
      */
-    public function delete(User $entity)
+    public function delete(User $user)
     {
-        OrmUser::destroy($entity->getId());
+        BaseUser::destroy($user->getId());
     }
 }

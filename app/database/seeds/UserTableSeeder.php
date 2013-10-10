@@ -11,7 +11,7 @@
 * @copyright  Copyright (c) 2013 NCCGroup Ltd.
 */
 
-use \Fototop\Model\Entity\Eloquent\User;
+use \Fototop\Model\Entity\Eloquent\BaseUser;
 
 class UserTableSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
     {
         DB::table("User")->delete();
 
-        User::create(array(
+        BaseUser::create(array(
             "Email" => "tomhalley89@gmail.com",
             "Username" => "tomhalley89",
             "Password" => "password",
@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
             "CreatedAt" => date("Y-m-d h:i:s")
         ));
 
-        User::create(array(
+        BaseUser::create(array(
             "Email" => "planetaliens98@hotmail.com",
             "Username" => "tom",
             "Password" => "password",

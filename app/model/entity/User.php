@@ -12,7 +12,7 @@ namespace Fototop\Model\Entity;
  *
  * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
-class User extends BaseEntity
+class User
 {
     /**
      * @var int
@@ -50,9 +50,9 @@ class User extends BaseEntity
     protected $UpdatedAt;
 
     /**
-     * @param Eloquent\User $user
+     * @param Eloquent\BaseUser $user
      */
-    public function __construct(Eloquent\User $user = null)
+    public function __construct(Eloquent\BaseUser $user = null)
     {
         if ($user !== null) {
             $this->id = $user->id;

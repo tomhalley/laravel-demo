@@ -11,7 +11,7 @@ namespace Fototop\Model\Entity;
  *
  * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
-class Image extends BaseEntity
+class Image
 {
     /**
      * @var int
@@ -21,12 +21,12 @@ class Image extends BaseEntity
     /**
      * @var string
      */
-    protected $Title;
+    protected $Checksum;
 
     /**
      * @var string
      */
-    protected $Path;
+    protected $Title;
 
     /**
      * @var string
@@ -54,12 +54,13 @@ class Image extends BaseEntity
     protected $DeletedAt;
 
     /**
-     * @param Eloquent\Image $image
+     * @param Eloquent\BaseImage $image
      */
-    public function __construct(Eloquent\Image $image = null)
+    public function __construct(Eloquent\BaseImage $image = null)
     {
         if ($image !== null) {
             $this->id = $image->id;
+            $this->Checksum = $image->Checksum;
             $this->Title = $image->Title;
             $this->Path = $image->Path;
             $this->Caption = $image->Caption;
@@ -71,7 +72,7 @@ class Image extends BaseEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -79,11 +80,11 @@ class Image extends BaseEntity
     }
 
     /**
-     * @param mixed $id
+     * @return string
      */
-    public function setId($id)
+    public function getChecksum()
     {
-        $this->id = $id;
+        return $this->Checksum;
     }
 
     /**
@@ -101,24 +102,6 @@ class Image extends BaseEntity
     public function setTitle($Title)
     {
         $this->Title = $Title;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPath()
-    {
-        return $this->Path;
-    }
-
-    /**
-     * @param $Path
-     * @return $this
-     */
-    public function setPath($Path)
-    {
-        $this->Path = $Path;
         return $this;
     }
 
