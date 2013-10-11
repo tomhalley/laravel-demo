@@ -17,7 +17,7 @@ class Image extends Migration
             $table->increments("id");
             $table->string("Checksum")->unique();
             $table->string("Title", 512);
-            $table->string("Caption", 1024)->nullable();
+            $table->string("Description", 1024)->nullable();
             $table->unsignedInteger("UserID");
             $table->dateTime("CreatedAt");
             $table->dateTime("UpdatedAt");

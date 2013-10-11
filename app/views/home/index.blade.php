@@ -1,17 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Laravel PHP Framework</title>
-</head>
-<body>
-<nav id="navbar" style="margin-bottom: 20px;">
-    <a href="/create/">Upload Image...</a>
-</nav>
-<section id="main">
-@foreach ($images as $image)
-    <img src="/image/{{ $image->Checksum }}" />
-@endforeach
-</section>
-</body>
-</html>
+@extends('shared.base')
+
+@section("title")
+    Home
+@stop
+
+@section("content")
+    <?php
+    $count = 0;
+    $rowCount = 4;
+    ?>
+    @foreach ($images as $image)
+        @if (($count) %$rowCount == 0 || $count == 0)
+        <div class="row">
+        @endif
+            <div class="col-md-4">
+                <img height="200px" width="200px" src="/image/{{ $image->Checksum }}" />
+            </div>
+        @if((($count + 1) %$rowCount == 0 && $count != 0) || $count == count($images))
+        </div>
+        @endif
+        <?php $count++ ?>
+    @endforeach
+@stop

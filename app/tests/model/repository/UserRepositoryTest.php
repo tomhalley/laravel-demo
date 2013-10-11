@@ -7,8 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
-use \Fototop\Model\Entity\Eloquent\BaseUser as OrmUser;
-use \Fototop\Model\Entity\User as UserModel;
+use \Fototop\Model\Entity\Eloquent\BaseUser;
+use \Fototop\Model\Entity\User;
 
 class UserRepositoryTest extends TestCase
 {
@@ -44,7 +44,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_savesNewUser()
     {
         # Arrange
-        $testUser = new UserModel();
+        $testUser = new User();
         $testUser->setEmail("test@test.com")
                  ->setUsername("testUser")
                  ->setFacebookID("gibberish123")
@@ -61,7 +61,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_updatesExistingUser()
     {
         # Arrange
-        $testUser = new OrmUser();
+        $testUser = new BaseUser();
         $testUser->Email = "test@test.com";
         $testUser->Username = "testUser";
         $testUser->Password = "password123";
@@ -76,7 +76,8 @@ class UserRepositoryTest extends TestCase
         # Act
         $result = $this->userRepo->save($persistedUser);
 
-        $postUpdateUser = OrmUser::find($testUser->id);
+        /* @var BaseUser $postUpdateUser */
+        $postUpdateUser = BaseUser::find($testUser->id);
 
         # Assert
         $this->assertTrue($result);
@@ -86,7 +87,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_failsUserWithInvalidId()
     {
         # Arrange
-        $testUser = new OrmUser();
+        $testUser = new BaseUser();
         $testUser->id = 9999;
         $testUser->Email = "test@test.com";
         $testUser->Username = "testUser";
@@ -95,7 +96,7 @@ class UserRepositoryTest extends TestCase
         $testUser->UpdatedAt = date("Y-m-d h:i:s");
         $testUser->CreatedAt = date("Y-m-d h:i:s");
 
-        $testModelUser = new UserModel($testUser);
+        $testModelUser = new User($testUser);
 
         # Act
         $result = $this->userRepo->save($testModelUser);
@@ -108,7 +109,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_canGetOneUser()
     {
         # Arrange
-        $testUser = new OrmUser();
+        $testUser = new BaseUser();
         $testUser->Email = "test@test.com";
         $testUser->Username = "testUser";
         $testUser->Password = "password123";
@@ -127,7 +128,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_canGetTwoUsers()
     {
         # Arrange
-        $testUser1 = new OrmUser();
+        $testUser1 = new BaseUser();
         $testUser1->Email = "test@test.com";
         $testUser1->Username = "testUser";
         $testUser1->Password = "password123";
@@ -136,7 +137,7 @@ class UserRepositoryTest extends TestCase
         $testUser1->CreatedAt = date("Y-m-d h:i:s");
         $testUser1->save();
 
-        $testUser2 = new OrmUser();
+        $testUser2 = new BaseUser();
         $testUser2->Email = "test@test.com";
         $testUser2->Username = "testUser";
         $testUser2->Password = "password123";
@@ -165,7 +166,7 @@ class UserRepositoryTest extends TestCase
     public function testUserRepository_deleteUser()
     {
         # Arrange
-        $testUser = new OrmUser();
+        $testUser = new BaseUser();
         $testUser->Email = "test@test.com";
         $testUser->Username = "testUser";
         $testUser->Password = "password123";
@@ -179,7 +180,7 @@ class UserRepositoryTest extends TestCase
         # Act
         $this->userRepo->delete($modelUser);
 
-        $result = OrmUser::find($modelUser->getId());
+        $result = BaseUser::find($modelUser->getId());
 
         # Assert
         $this->assertNull($result);

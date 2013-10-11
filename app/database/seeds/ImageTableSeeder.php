@@ -21,7 +21,7 @@ class ImageTableSeeder extends Seeder
         BaseImage::create(array(
             "Checksum" => "y948ahf94awfh",
             "Title" => "Test Image #1",
-            "Caption" => "Test Image #1",
+            "Description" => "Test Image #1",
             "UserID" => 1,
             "UpdatedAt" => date("Y-m-d h:i:s"),
             "CreatedAt" => date("Y-m-d h:i:s")

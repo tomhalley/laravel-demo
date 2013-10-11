@@ -15,6 +15,6 @@ namespace Fototop\Model\Common;
 class Constants
 {
     const IMAGE_DIRECTORY = "/home/thalley887/Pictures/test/";
-    const IMAGE_EXTENSION = ".jpg";
-    const IMAGE_MIMETYPE = "image/jpg";
+    const IMAGE_EXTENSION = ".png";
+    const IMAGE_MIMETYPE = "image/png";
 }

@@ -9,7 +9,7 @@ namespace Fototop\Model\Entity\Eloquent;
  * @property int $id
  * @property string $Checksum
  * @property string $Title
- * @property string $Caption
+ * @property string $Description
  * @property int $UserID
  * @property \DateTime $CreatedAt
  * @property \DateTime $UpdatedAt

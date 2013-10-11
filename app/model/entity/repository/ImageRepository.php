@@ -6,24 +6,31 @@ use Fototop\Model\Entity\Eloquent\BaseImage;
 use Fototop\Model\Entity\Image;
 
 /**
-* ImageRepository.php
-*
-* @author     Tom Halley <tom.halley@nccgroup.com>
-* @package    Fototop
-* @category   Repository
-* @since      08/10/13  14:26
-*
-* @copyright  Copyright (c) 2013 NCCGroup Ltd.
-*/
+ * ImageRepository.php
+ *
+ * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @package    Fototop
+ * @category   Repository
+ * @since      08/10/13  14:26
+ *
+ * @copyright  Copyright (c) 2013 NCCGroup Ltd.
+ */
 class ImageRepository
 {
     /**
      * @param $id
-     * @return mixed
+     * @return bool|Image
      */
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        /** @var $image BaseImage */
+        $image = BaseImage::find($id);
+
+        if ($image == false) {
+            return false;
+        }
+
+        return new Image($image);
     }
 
     /**
@@ -57,8 +64,8 @@ class ImageRepository
         }
 
         $persistentImage->Title = $image->getTitle();
-        $persistentImage->Path = $image->getPath();
-        $persistentImage->Caption = $image->getCaption();
+        $persistentImage->Checksum = $image->getChecksum();
+        $persistentImage->Description = $image->getDescription();
         $persistentImage->UserID = $image->getUserID();
         $persistentImage->CreatedAt =
         $persistentImage->UpdatedAt = date("Y-m-d h:i:s");
@@ -68,7 +75,7 @@ class ImageRepository
     }
 
     /**
-     * @param BaseEntity $entity
+     * @param Image $entity
      * @return mixed
      */
     public function delete($entity)

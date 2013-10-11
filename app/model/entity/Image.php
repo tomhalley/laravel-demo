@@ -31,7 +31,7 @@ class Image
     /**
      * @var string
      */
-    protected $Caption;
+    protected $Description;
 
     /**
      * @var int
@@ -88,6 +88,16 @@ class Image
     }
 
     /**
+     * @param $checksum
+     * @return $this
+     */
+    public function setChecksum($checksum)
+    {
+        $this->Checksum = $checksum;
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getTitle()
@@ -108,18 +118,18 @@ class Image
     /**
      * @return mixed
      */
-    public function getCaption()
+    public function getDescription()
     {
-        return $this->Caption;
+        return $this->Description;
     }
 
     /**
-     * @param $Caption
+     * @param $Description
      * @return $this
      */
-    public function setCaption($Caption)
+    public function setDescription($Description)
     {
-        $this->Caption = $Caption;
+        $this->Description = $Description;
         return $this;
     }
 
@@ -137,6 +147,7 @@ class Image
     public function setUserID($UserID)
     {
         $this->UserID = $UserID;
+        return $this;
     }
 
     /**

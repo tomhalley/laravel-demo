@@ -1,6 +1,7 @@
 <?php
 
 use Fototop\Model\Common\Constants;
+use Fototop\Model\Entity\Image;
 
 /**
 * ImageController.php
@@ -15,9 +16,19 @@ use Fototop\Model\Common\Constants;
 
 class ImageController extends BaseController
 {
+    /**
+     * @var Fototop\Model\Service\ImageService
+     */
+    private $imageService;
+
+    public function __construct()
+    {
+        $this->imageService = new \Fototop\Model\Service\ImageService();
+    }
+
     public function imageAction($checksum)
     {
-        $path = Constants::IMAGE_DIRECTORY . $checksum . Constants::IMAGE_EXTENSION;
+        $path = Constants::IMAGE_DIRECTORY . $checksum;
 
         # check image exists
         if(!file_exists($path)) {
@@ -40,6 +51,15 @@ class ImageController extends BaseController
 
     public function processAction()
     {
-        echo Input::get("title");
+        $file = Input::file("image");
+        $title = Input::get("title");
+        $description = Input::get("description");
+        $userId = 1;
+
+        if($file !== null) {
+            $this->imageService->saveImage($file, $title, $description, $userId);
+        }
+
+        return Redirect::route("home");
     }
 }
