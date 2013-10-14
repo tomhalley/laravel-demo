@@ -37,11 +37,9 @@ class ImageController extends BaseController
 
         $image = file_get_contents($path);
 
-        $headers = array(
+        return Response::make($image, 200, array(
             "Content-Type" => Constants::IMAGE_MIMETYPE
-        );
-
-        return Response::make($image, 200, $headers);
+        ));
     }
 
     public function createAction()

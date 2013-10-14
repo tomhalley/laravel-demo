@@ -33,4 +33,15 @@ class HomeController extends BaseController
 
         return View::make("home/index", array("images" => $images));
     }
+
+    public function viewImageAction($id)
+    {
+        $image = $this->imageRepo->findById($id);
+
+        if($image === false) {
+            return Redirect::route("home");
+        }
+
+        return View::make("home/view", array("image" => $image));
+    }
 }
