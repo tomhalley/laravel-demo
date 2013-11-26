@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * BaseController Class
+ *
+ * @author     Tom Halley <tomhalley89@gmail.com>
+ */
 class BaseController extends Controller
 {
 	/**

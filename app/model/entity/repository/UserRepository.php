@@ -7,12 +7,10 @@ use Fototop\Model\Entity\User;
 /**
  * UserRepository.php
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop
  * @category   Repository
  * @since      08/10/13  14:41
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 
 class UserRepository

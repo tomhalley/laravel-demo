@@ -4,12 +4,10 @@ use \Fototop\Model\Entity\Eloquent\BaseImage;
 /**
 * ImageTableSeeder.php
 *
-* @author     Tom Halley <tom.halley@nccgroup.com>
+* @author     Tom Halley <tomhalley89@gmail.com>
 * @package    Fototop
 * @category   [SUBSYSTEM NAME]
 * @since      10/10/13  14:05
-*
-* @copyright  Copyright (c) 2013 NCCGroup Ltd.
 */
 
 class ImageTableSeeder extends Seeder

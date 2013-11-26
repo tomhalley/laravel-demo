@@ -3,12 +3,10 @@
 /**
 * UserTableSeeder.php
 *
-* @author     Tom Halley <tom.halley@nccgroup.com>
+* @author     Tom Halley <tomhalley89@gmail.com>
 * @package    Fototop
 * @category   [SUBSYSTEM NAME]
 * @since      08/10/13  17:21
-*
-* @copyright  Copyright (c) 2013 NCCGroup Ltd.
 */
 
 use \Fototop\Model\Entity\Eloquent\BaseUser;

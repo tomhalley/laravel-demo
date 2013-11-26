@@ -4,12 +4,10 @@ namespace Fototop\Model\Entity;
 /**
  * Image Class
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop\Model\Entity
  * @category
  * @since
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 class Image
 {

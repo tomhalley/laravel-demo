@@ -3,6 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use \Illuminate\Database\Schema\Blueprint;
 
+/**
+ * Image Migration Class
+ *
+ * @author     Tom Halley <tomhalley89@gmail.com>
+ */
 class Image extends Migration
 {
     /**

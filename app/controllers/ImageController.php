@@ -4,16 +4,10 @@ use Fototop\Model\Common\Constants;
 use Fototop\Model\Entity\Image;
 
 /**
-* ImageController.php
-*
-* @author     Tom Halley <tom.halley@nccgroup.com>
-* @package    Fototop
-* @category   [SUBSYSTEM NAME]
-* @since      10/10/13  14:22
-*
-* @copyright  Copyright (c) 2013 NCCGroup Ltd.
-*/
-
+ * ImageController Class
+ *
+ * @author     Tom Halley <tomhalley89@gmail.com>
+ */
 class ImageController extends BaseController
 {
     /**

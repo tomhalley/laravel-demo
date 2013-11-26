@@ -16,12 +16,10 @@ use Fototop\Model\Common\Constants;
  * - Serve Image objects to caller
  * - Create thumbnails for images
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop
  * @category   [SUBSYSTEM NAME]
  * @since      10/10/13  09:41
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 
 class ImageService

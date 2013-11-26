@@ -8,12 +8,10 @@ use Fototop\Model\Entity\Image;
 /**
  * ImageRepository.php
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop
  * @category   Repository
  * @since      08/10/13  14:26
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 class ImageRepository
 {

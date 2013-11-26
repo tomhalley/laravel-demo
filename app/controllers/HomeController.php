@@ -3,8 +3,7 @@
 /**
  * HomeController Class
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
+ * @author     Tom Halley <tomhalley89@gmail.com>
  */
 class HomeController extends BaseController
 {

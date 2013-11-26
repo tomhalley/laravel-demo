@@ -5,12 +5,10 @@ namespace Fototop\Model\Entity;
 /**
  * User.php
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop
  * @category   Entity
  * @since      08/10/13  14:31
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 class User
 {

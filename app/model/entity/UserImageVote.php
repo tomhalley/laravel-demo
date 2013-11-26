@@ -4,12 +4,10 @@ namespace Fototop\Model\Entity;
 /**
  * UserImageVote.php
  *
- * @author     Tom Halley <tom.halley@nccgroup.com>
+ * @author     Tom Halley <tomhalley89@gmail.com>
  * @package    Fototop
  * @category   [SUBSYSTEM NAME]
  * @since      08/10/13  17:00
- *
- * @copyright  Copyright (c) 2013 NCCGroup Ltd.
  */
 
 class UserImageVote

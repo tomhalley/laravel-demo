@@ -1,8 +1,13 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use \Illuminate\Database\Migrations\Migration;
 use \Illuminate\Database\Schema\Blueprint;
 
+/**
+ * User-Image-Vote Migration Class
+ *
+ * @author     Tom Halley <tomhalley89@gmail.com>
+ */
 class UserImageVote extends Migration
 {
     /**
